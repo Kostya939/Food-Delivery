@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Restaurants</title>
+    <link rel="stylesheet" type="text/css" href="/css/styles.css">
+</head>
+<body>
+<div class="container">
+    <h1>Restaurants</h1>
+    <ul>
+        <li th:each="restaurant : ${restaurants}">
+            <a th:href="@{/restaurants/{id}(id=${restaurant.id})}" th:text="${restaurant.name}">Restaurant Name</a>
+        </li>
+    </ul>
+</div>
+</body>
+</html>

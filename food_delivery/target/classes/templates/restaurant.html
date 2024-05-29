@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Restaurant</title>
+    <link rel="stylesheet" type="text/css" href="/css/styles.css">
+</head>
+<body>
+<div class="container">
+    <h1 th:text="${restaurant.name}">Restaurant Name</h1>
+    <h2>Menu Items</h2>
+    <ul>
+        <li th:each="item : ${restaurant.menuItems}">
+            <span th:text="${item.name}">Menu Item Name</span> - <span th:text="${item.price}">0.00</span>
+        </li>
+    </ul>
+
+    <!-- Кнопка для створення замовлення -->
+    <a th:href="@{/orders/create(restaurantId=${restaurant.id})}" class="btn">Зробити замовлення</a>
+
+    <!-- Кнопка для повернення назад до списку ресторанів -->
+    <a th:href="@{/restaurants}" class="btn">Повернутись назад</a>
+</div>
+</body>
+</html>

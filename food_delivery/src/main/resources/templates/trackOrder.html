@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Track Order</title>
+    <link rel="stylesheet" type="text/css" href="/css/styles.css">
+</head>
+<body>
+<div class="container">
+    <h1>Track Order</h1>
+    <form th:action="@{/orders/track}" method="post">
+        <div class="form-group">
+            <label for="orderId">Order ID</label>
+            <input type="text" id="orderId" name="orderId"/>
+        </div>
+        <input type="submit" value="Track Order"/>
+    </form>
+</div>
+</body>
+</html>

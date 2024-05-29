@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Tracked Orders</title>
+    <link rel="stylesheet" type="text/css" href="/css/styles.css">
+</head>
+<body>
+<div class="container">
+    <h1>Tracked Orders</h1>
+    <ul>
+        <li th:each="order : ${orders}">
+            <span th:text="${order.customerName}">Customer Name</span> -
+            <span th:text="${order.status}">Status</span>
+        </li>
+    </ul>
+</div>
+</body>
+</html>

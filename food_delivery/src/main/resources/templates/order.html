@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Order</title>
+    <link rel="stylesheet" type="text/css" href="/css/styles.css">
+</head>
+<body>
+<div class="container">
+    <h1>Order Details</h1>
+    <p>Customer Name: <span th:text="${order.customerName}">Customer Name</span></p>
+    <p>Phone Number: <span th:text="${order.phoneNumber}">Phone Number</span></p>
+    <p>Address: <span th:text="${order.address}">Address</span></p>
+    <p>Status: <span th:text="${order.status}">Status</span></p>
+
+    <h2>Items</h2>
+    <ul>
+        <li th:each="item : ${order.items}">
+            <span th:text="${item.name}">Item Name</span> - <span th:text="${item.price}">Price</span>
+        </li>
+    </ul>
+
+    <h2>Update Status</h2>
+    <form th:action="@{/orders/{id}/status(id=${order.id})}" method="post">
+        <select name="status">
+            <option value="Pending">Pending</option>
+            <option value="In Progress">In Progress</option>
+            <option value="Completed">Completed</option>
+        </select>
+        <input type="submit" value="Update"/>
+    </form>
+</div>
+</body>
+</html>
